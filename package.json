@@ -1,0 +1,66 @@
+{
+  "name": "BluetoothCursov",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "node node_modules/eslint/bin/eslint.js --max-warnings=0 ./src",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "bundle:android": "react-native bundle --platform android --dev false --entry-file index.android.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/"
+  },
+  "dependencies": {
+    "@remobile/react-native-toast": "1.0.7",
+    "axios": "^0.18.0",
+    "buffer": "^5.2.1",
+    "iconv-lite": "0.4.24",
+    "lodash": "^4.17.10",
+    "moment": "^2.22.2",
+    "react": "16.8.3",
+    "react-native": "0.59.3",
+    "react-native-bluetooth-serial": "1.0.0-rc1",
+    "react-native-config": "^0.11.7",
+    "react-native-splash-screen": "^3.2.0",
+    "react-navigation": "^2.1.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^5.9.1",
+    "redux-persist-transform-filter": "^0.0.17",
+    "redux-thunk": "^2.3.0",
+    "stream": "0.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/runtime": "^7.4.3",
+    "babel-eslint": "^8.2.3",
+    "babel-jest": "^24.7.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-native": "^4.0.0",
+    "babel-preset-react-native-stage-0": "^1.0.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.19.1",
+    "eslint-plugin-babel": "^5.1.0",
+    "eslint-plugin-flowtype": "^2.49.3",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.9.1",
+    "eslint-plugin-react-native": "^3.2.1",
+    "husky": "0.15.0-rc.6",
+    "jest": "^24.7.1",
+    "metro-react-native-babel-preset": "^0.53.1",
+    "prettier": "^1.13.4",
+    "react-test-renderer": "16.8.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint"
+    }
+  }
+}
