@@ -304,8 +304,12 @@ class App extends Component {
     BluetoothSerial.readFromDevice()
     .then(res => {
       console.log("Successfuly read to device");
-      console.log("HERE  " + res);
+      console.log("HERE  " + res.trim());
       console.log("HERE2  " + Buffer(res));
+      console.log( "HERE3 " + Buffer.from(res, 'ascii'));
+      console.log("HERE4 " + Buffer.from(res, 'utf16le'));
+      const res1 = res.split(" ")[0];
+      console.log(res1);
       this.setState({ connected: true });
     })
     .catch(err => console.log(err.message));
