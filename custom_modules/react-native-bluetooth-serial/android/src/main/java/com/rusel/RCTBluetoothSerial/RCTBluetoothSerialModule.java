@@ -534,8 +534,10 @@ public class RCTBluetoothSerialModule extends ReactContextBaseJavaModule impleme
                 Log.i("TESTDATA1123", arr[1] + " " + arr[2]);
                 Log.i("TESTDATAHELP", "Темперура = " + temperature + " Влажность = " + humidity + " co2 = " + co2 + " battery = " + battery + " " + lastLoggedRecord + " " + temperature + " " + humidity + " " + co2
                         + " " + pm1 + " " + pm25 + " " + pm10 + " " + tvoc);
-                data2 = temperature + " " + humidity + " " + co2 + " " + battery + " " + lastLoggedRecord + " " + temperature + " " + humidity + " " + co2
-                        + " " + pm1 + " " + pm25 + " " + pm10 + " " + tvoc;
+                data2 = temperature + " " + humidity + " " + co2 + " " + battery + " " + pm1 + " " + pm25 + " " + pm10 + " " + tvoc;
+                WritableMap params = Arguments.createMap();
+                params.putString("data", data2);
+                sendEvent(DEVICE_READ, params);
             } else {
                 data2 = "Test";
             }
@@ -544,6 +546,9 @@ public class RCTBluetoothSerialModule extends ReactContextBaseJavaModule impleme
         //mBuffer.append(data);
         mBuffer = new StringBuffer(String.valueOf(data));
 
+//        WritableMap params = Arguments.createMap();
+//        params.putString("data", data2);
+//        sendEvent(DEVICE_READ, params);
         String completeData = readUntil(this.delimiter);
         if (completeData != null && completeData.length() > 0) {
             WritableMap params = Arguments.createMap();

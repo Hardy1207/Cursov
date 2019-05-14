@@ -310,14 +310,12 @@ class RCTBluetoothSerialService {
                         if(bytes != 23)
                             Thread.sleep(15000);
                     }
+                    bytes = 0;
                     String data = new String(buffer, 0, bytes, "ISO-8859-1");
                     Log.i("DATAFROMString", data);
                     ByteBuffer byteBuffer = ByteBuffer.wrap(buffer);
                     byteBuffer.order(ByteOrder.LITTLE_ENDIAN);
-                    if(bytes == 23) {
-                        mModule.onData(byteBuffer); // Send the new data String to the UI Activity
-                        bytes = 0;
-                    }
+                    mModule.onData(byteBuffer); // Send the new data String to the UI Activity
                 } catch (Exception e) {
                     Log.e(TAG, "disconnected", e);
                     mModule.onError(e);
